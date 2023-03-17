@@ -31,11 +31,11 @@ class Carrinho extends React.Component {
     render() {
         return (
 
-            <View style={styles.outView}>
+            <View >
                 <View style={styles.container}>
 
                     {/*chamando o produto e duas propriedades p e valorFinal*/}
-                    <Produto 
+                    <Produto
                         p={produtos[0]}
                         valorFinal={this.atualizarTotal.bind(this)}
                     />
@@ -48,7 +48,7 @@ class Carrinho extends React.Component {
                         p={produtos[2]} valorFinal={this.atualizarTotal.bind(this)}
                     />
 
-                    <Produto 
+                    <Produto
                         p={produtos[3]}
                         valorFinal={this.atualizarTotal.bind(this)}
                     />
@@ -72,10 +72,11 @@ const styles = StyleSheet.create({
     outView: {
 
         display: 'flex',
-justifyContent:'space-evenly',
+        justifyContent: 'space-evenly',
     },
     //container de fora (que fica em volta dos itens do pedido)
     container: {
+        
         backgroundColor: 'white',
         margin: 6,
         padding: 10,
@@ -100,9 +101,9 @@ justifyContent:'space-evenly',
 
     },
 
-    produto:{
-        width:30,
-        height:50,
+    produto: {
+        width: 'auto',
+        height: 'auto',
     }
 
 });

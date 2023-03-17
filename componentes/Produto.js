@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
 
     //imagem dos produtos
     imgProd: {
-        alignSelf: 'center',
+        alignSelf:'center',
         width: 200,
         height: 250,
     },

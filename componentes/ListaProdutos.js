@@ -1,18 +1,17 @@
-import { FlatList, Image, Text, View } from "react-native";
+import { FlatList, Image, StyleSheet, Text, View } from "react-native";
 
-import Produto from "./Produto";
 
-const ListaProdutos = (props) => {
+const ListaProdutos = () => {
     return (
-
         <View>
             <FlatList
-            horizontal={true}
-            showsHorizontalScrollIndicator ={true}
-                data={props.produtos}
+                horizontal={true}
+                showsHorizontalScrollIndicator={true}
+                data={props.p.img}
                 renderItem={
                     ({ item }) => (
-                        <Produto p={item} />
+                        <Image style={styles.imagem}
+                            source={item} />
                     )
                 }
             />
@@ -22,4 +21,13 @@ const ListaProdutos = (props) => {
 }
 
 
+const styles = StyleSheet.create({
+
+    imagem: {
+        width: 250,
+        height: 250,
+    },
+});
+
 export default ListaProdutos;
+

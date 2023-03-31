@@ -1,0 +1,103 @@
+import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
+import LojaProd from './componentes/Loja';
+import Compras from './componentes/Compras';
+import Product from './componentes/Product';
+
+var nome = 'Corpsegrinder';
+var idade = 53;
+//utilizando com varios objetos
+var pessoa = {
+  nome: 'George "Corpsegrinder" Fisher',
+  idade: 53,
+  //objeto dentro de outro
+  profissao: {
+    cargo: 'Vocalista',
+    salario: '?',
+  },
+  //usando um array
+  discos: [
+    { nome: 'X', ano_lancamento: 'Y' },
+    { nome: 'X', ano_lancamento: 'Y' }
+  ],
+}
+/*exibindo o que ta na variavel
+       <View>
+         <Text>{pessoa.nome}</Text>
+
+         <Text>{pessoa.idade}</Text>
+         <Text>{pessoa.profissao.cargo}</Text>
+         <Text>{pessoa.discos[0].nome}</Text>
+
+       </View>
+       */
+
+/* array
+['Corey Taylor','Mr. Shadows','Tobias Forge']
+*/
+
+//isso aqui sao objetos tambem
+const produto = {
+  nome: 'Cannibal Corpse',
+  preco: 23.00,
+  //colocando varias imagens dentro de um array de objetos
+  imagens: [
+    { key: 1, img: require('./componentes/images/vile.jpg') },
+    { key: 2, img: require('./componentes/images/bat.jpg') },
+    { key: 3, img: require('./componentes/images/vu.webp') },
+    { key: 4, img: require('./componentes/images/bloodthirsty.jpg') },
+
+  ]
+};
+
+export default function App() {
+  return (
+    <ScrollView>
+      <View style={styles.container}>
+
+        <Text style={styles.texto}>
+          CANNIBAL CORPSE ALBUM COVERS
+        </Text>
+
+        <View >
+          <Product
+
+            /*exibindo os objetos criados no outro componente
+              aqui ele espera receber algo (p, que foi utilizado no componente Product)
+    
+            */
+            p={produto}
+
+          />
+        </View>
+      </View>
+    </ScrollView >
+
+  );
+}
+
+const styles = StyleSheet.create({
+  //container geral 
+  container: {
+    backgroundColor: 'black',
+  },
+  //texto geral
+  texto: {
+    color: '#FF0000',
+    fontSize: 25,
+    alignSelf: 'center',
+  },
+
+  //rodape
+  rodape: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0
+  },
+  //texto dos produtos
+  produto: {
+    color: 'lightgray',
+    fontSize: 30,
+    alignSelf: 'center',
+  },
+});

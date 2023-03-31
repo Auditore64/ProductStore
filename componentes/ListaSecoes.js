@@ -1,4 +1,4 @@
-import { SectionList, Text, TouchableHighlightBase, View } from "react-native";
+import { SectionList, Text, View } from "react-native";
 
 const ListaSecoes = (props) => {
     return (

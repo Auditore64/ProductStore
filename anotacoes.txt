@@ -1,0 +1,159 @@
+# React-native é uma biblioteca do react
+# Props serve para acessar o conteudo de uma funcao (ou objeto)
+
+# isso é importação nomeada
+import { Text } from "react-native";
+
+
+# se for uma constante precisa usar uma arrow function 
+lembrar de usar o return e depois exportar o componente
+
+export default const ....
+
+é usado para exportar mais de um componente de uma vez
+
+
+const Texto = () => {
+    return (
+        <Text>Victor</Text>
+    );
+
+}
+
+
+
+#imagem em react native
+
+
+#Usando uma funcao ao inves de constante
+
+<Image  source = {require('caminho da imagem')} />
+
+function Texto() {
+    return (
+        <View>
+            <Text>Victor</Text>
+            <Text>Henrique</Text>
+        </View>
+
+    );
+}
+
+
+export default Texto;
+
+# exportação padrao
+
+
+#estilizando
+
+
+#colocando estilo no item
+style={styles.estilo}
+const styles = StyleSheet.create ({
+
+estilo:{
+estilização
+
+},
+
+});
+
+
+
+#usando o Props
+
+                    coloca o props aqui dentro
+                           #
+const ExibirMensagem = (props) => {
+    return (
+        <View>
+        #aqui dentro que se declara o que vai ser chamado no outro componente ou App#
+                                    #
+            <Text>Autor: {props.msg.autor}</Text>
+            <Text>Destinatário: {props.msg.dest}</Text>
+            <Text>Mensagem: {props.msg.texto}</Text>
+        </View>
+    );
+};
+
+
+export default ExibirMensagem;
+
+
+
+# no app ou outro componente#
+
+#cria uma variavel e coloca o que vai ser exibido na tela#
+
+
+var msg = {
+  autor: 'Corpsegrinder',
+  dest: 'Taylor',
+  texto: 'Necrogenic resurrection',
+}
+
+
+#exibindo#
+
+<Text>{msg[2].autor}</li>
+<Text>{msg[2].dest}</li>
+<Text>{msg[2].texto}</li>
+
+
+
+# ELEVAÇÃO DO STATE #
+1° - DEFINIR PROPRIEDADES E METODOS
+2° - PASSAR METODO COMO PROPRIEDADE PARA O COMPONENTE FILHO
+3° - NO FILHO, CHAMAR O METODO PAI
+#
+#METODOS#
+ state = {
+        valorTotal: 0
+    };
+    
+    #isso é um metodo
+    #nome do metodo
+    atualizarTotal(valor) {
+        this.setState({
+            valorTotal: this.state.valorTotal + valor
+        });
+    };
+
+
+#metodos usam parenteses#
+#
+ex: 
+
+<Image source={require('image_path')}/>
+
+
+
+class Produto extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            texto: 'Comprar',
+            qtd: 0,
+            total: 0,
+            adicionado: false //ele é uma propriedade
+        };
+    }
+
+
+addProduto() {
+        this.setState({
+            qtd: this.state.qtd + 1,
+            total: this.state.total + this.props.p.preco
+        });
+        this.props.valorFinal(this.props.p.preco);
+    }
+
+    <Button
+        onPress={this.addProduto.bind(this)}
+    title={this.state.adicionado ? 'Adicionado' : 'Adicionar'}
+    />
+
+
+    se for chamar uma funcao que tenha o this 
+    é preciso usar o bind 

@@ -3,12 +3,14 @@ import LojaProd from './componentes/Loja';
 import Compras from './componentes/Compras';
 import Product from './componentes/Product';
 import Config from './componentes/Config';
+import Form from './componentes/Form';
+import FormClass from './componentes/FormClass';
 
 export default function App() {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Config />
+        <FormClass/>
       </View>
     </ScrollView>
   );

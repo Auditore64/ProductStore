@@ -1,18 +1,51 @@
 import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
-import LojaProd from './componentes/Loja';
-import Compras from './componentes/Compras';
-import Product from './componentes/Product';
-import Config from './componentes/Config';
-import Form from './componentes/Form';
-import FormClass from './componentes/FormClass';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import TelaHome from './telas/TelaHome';
+import TelaContato from './telas/TelaContato';
+import Tela1 from './telas/Tela1';
+import Tela2 from './telas/Tela2';
+import Tela3 from './telas/Tela3';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <FormClass/>
-      </View>
-    </ScrollView>
+    <NavigationContainer>
+      <Stack.Navigator >
+        
+        <Stack.Screen
+          name='TelaHome'
+          component={TelaHome}
+          options={{ title: 'Página Home' }}
+        />
+
+        <Stack.Screen
+          name='TelaContato'
+          component={TelaContato}
+          options={{ title: 'Página Contato' }}
+        />
+        
+        <Stack.Screen
+          name='Tela1'
+          component={Tela1}
+          options={{ title: 'Tela Principal' }}
+        />
+        
+        <Stack.Screen
+          name='Tela2'
+          component={Tela2}
+          options={{ title: 'Segunda Tela' }}
+        />
+          
+         <Stack.Screen
+           name='Tela3'
+           component={Tela3}
+           options={{ title: 'Terceira Tela' }}
+         />
+        
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
@@ -23,7 +56,6 @@ const styles = StyleSheet.create({
   },
   //texto geral
   texto: {
-    color: 'white',
     fontSize: 25,
     alignSelf: 'center',
   },

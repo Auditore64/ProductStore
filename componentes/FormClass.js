@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Button, Switch, Component } from "react-native";
+import { View, Text, TextInput, Button, Switch, Component, StyleSheet } from "react-native";
 import React from "react";
 import SelectDropdown from 'react-native-select-dropdown';
 
@@ -43,43 +43,22 @@ class FormClass extends React.Component {
         return (
             <View style={{ padding: 10, }}>
                 <Text
-                    style={{
-                        color: "white",
-                        fontSize: 25,
-                        padding: 10,
-                    }}
+                    style={styles.textoGeral}
                 >Cadastro</Text>
 
                 <Text
-                    style={{
-                        padding: 10,
-                        color: "white",
-                        fontSize: 25,
-                    }}
+                    style={styles.textoGeral}
                 >Nome:</Text>
 
                 <TextInput
-                    style={{
-                        height: 40,
-                        borderWidth: 1,
-                        padding: 10,
-                        fontSize: 20,
-                        borderColor: "white",
-                        borderRadius: 5,
-                        marginBottom: 10,
-                    }}
-
+                    style={styles.InputTexto}
                     placeholder="Digite o seu nome"
                     defaultValue={this.state.nome}
                     onChangeText={this.setNome.bind(this)}
                 />
 
                 <Text
-                    style={{
-                        padding: 10,
-                        color: "white",
-                        fontSize: 25,
-                    }}
+                    style={styles.textoGeral}
                 >Casado:</Text>
 
                 <Switch
@@ -87,12 +66,13 @@ class FormClass extends React.Component {
                     onValueChange={this.setCasado.bind(this)}
                     value={this.state.casado}
                 />
-                <Text>Titulação</Text>
+                <Text style={styles.textoGeral}
+                >Titulação</Text>
 
                 <SelectDropdown
-                style={{
-                    marginBottom:10,
-                }}
+                    style={{
+                        marginBottom: 10,
+                    }}
                     data={this.state.titulacoes}
                     onSelect={this.setTitulacao.bind(this)}
                 />
@@ -105,27 +85,15 @@ class FormClass extends React.Component {
                 {this.state.enviar &&
                     <View>
                         <Text
-                            style={{
-                                padding: 10,
-                                color: "lightblue",
-                                fontSize: 25,
-                            }}
+                            style={styles.downtext}
                         >Nome: {this.state.nome}</Text>
 
                         <Text
-                            style={{
-                                padding: 10,
-                                color: "lightblue",
-                                fontSize: 25,
-                            }}
+                            style={styles.downtext}
                         >Casado: {this.state.casado ? 'sim' : 'não'}</Text>
 
                         <Text
-                            style={{
-                                padding: 10,
-                                color: "lightblue",
-                                fontSize: 25,
-                            }}
+                            style={styles.downtext}
                         >Titulação: {this.state.titulacao}</Text>
                     </View>
                 }
@@ -133,5 +101,29 @@ class FormClass extends React.Component {
         )
     }
 }
+
+const styles = StyleSheet.create({
+    downtext: {
+        padding: 10,
+        color: "cyan",
+        fontSize: 25,
+    },
+
+    textoGeral: {
+        padding: 10,
+        color: "white",
+        fontSize: 25,
+    },
+    InputTexto:{
+        height: 40,
+        borderWidth: 1,
+        padding: 10,
+        fontSize: 20,
+        borderColor: "white",
+        borderRadius: 5,
+        marginBottom: 10,
+    },
+});
+
 
 export default FormClass;
